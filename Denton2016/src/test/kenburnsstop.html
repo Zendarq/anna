@@ -287,9 +287,9 @@
 
                         document.getElementById("pictureName").innerHTML = image_path_name;
 
-                        $('#animationBox').removeClass().addClass("animated fadeInLeft").one(animationEnd, function() {
-                            $("#animationBox").removeClass();
-                            $("#animationBox").addClass("animated fadeOutUp");
+                        var animationBox = $('#animationBox').removeClass().addClass("animated fadeInLeft").one(animationEnd, function() {
+                            animationBox.removeClass();
+                            animationBox.addClass("animated fadeOutUp");
                         })
                     }
 				});
@@ -301,8 +301,8 @@
             var i=0;
             var nextSong= "";
             function setupAudio() {
-                var audioPlayer = document.getElementById('audioplayer').addEventListener('ended', function(){
-                    document.getElementById('audioplayer').removeEventListener();
+                document.getElementById('audioplayer').addEventListener('ended', function(){
+                   // document.getElementById('audioplayer').removeEventListener();
                     var playlist = ['../audio/CharliePuth-OneCallAway.mp3',
                                     '../audio/O-TheKillers AllTheseThingsThatIDone.mp3',
                                     '../audio/TwentyOnePilots-StressedOut.mp3',
@@ -334,7 +334,7 @@
                         '../audio/RachelPlatten-StandByYou.mp3',
                         '../audio/RuthB-LostBoy.mp3',
                         '../audio/TroyeSivan-YOUTH.mp3',
-                        '../audio/TwentyOnePilots-StressedOut.mp3',
+                        '../audio/TwentyOnePilots-StressedOut.mp3'
                     ];
                     console.log("NEXT SONG IS: " + playlist[i] + " " + i);
                     nextSong = playlist[i];
