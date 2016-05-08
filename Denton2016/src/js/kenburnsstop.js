@@ -23,6 +23,7 @@
 
         var image_path_name = "empty";
 
+        var currentImageNumber = -1;
         var intervalId;
 
         var images = [];
@@ -171,11 +172,8 @@
                 return;
             }
 
-            console.log("TOP FRAME: " + top_frame);
             function getIndex(i) {
                 var index = (i + images.length) % images.length;
-                console.log("INDEX IS NOW: " + index + " Length: " + images.length);
-
                 return index;
             }
 
@@ -187,15 +185,16 @@
                 if (update_time < fade_time) {
                     clear();
                 } else {
-                    console.log("Render Bottom Frame: " + bottom_frame);
+                    //console.log("Render Bottom Frame: " + bottom_frame);
                     render_image(getIndex(bottom_frame), bottom_time_passed / display_time, 1);
                 }
             }
 
-            console.log("Render Top Frame: " + top_frame);
+            //console.log("Render Top Frame: " + top_frame);
             render_image(getIndex(top_frame), time_passed / display_time, time_passed / fade_time);
 
             var image_info = images[getIndex(top_frame)];
+
             if (image_info) {
                 image_path_name = image_info.path.substring(
                                         image_info.path.lastIndexOf("/")+1,
@@ -203,6 +202,15 @@
                                         );
             }
 
+            // Do a callback at the start of the new picture
+            if (currentImageNumber != top_frame) {
+                if (options.new_image_callback) {
+                    options.new_image_callback($canvas, ctx, image_path_name);
+                }
+                currentImageNumber = top_frame;
+            }
+
+            // Do a callback at the end of the render
             if (options.post_render_callback) {
                 options.post_render_callback($canvas, ctx, image_path_name);
             }

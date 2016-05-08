@@ -1336,6 +1336,8 @@
 
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
+  -webkit-animation-duration: 1.5s;
+
   animation-name: fadeInLeft;
 }
 
