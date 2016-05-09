@@ -140,14 +140,17 @@
                     },
 
                     new_image_callback:function($canvas, ctx, image_path_name) {
-                        console.log("NEW IMAGE callback: " + image_path_name);
                         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
                         document.getElementById("pictureName").innerHTML = image_path_name;
 
+                        var width = document.getElementById("pictureName").offsetWidth;
+
+                        console.log("NEW IMAGE callback: " + width);
+
                         var animationBox = $('#animationBox').removeClass().addClass("animated fadeInLeft").one(animationEnd, function() {
                             animationBox.removeClass();
-                            animationBox.addClass("animated fadeOutUp");
+                            //animationBox.addClass("animated fadeOutUp");
                         })
                     }
 				});
@@ -221,7 +224,7 @@
                 </canvas>
             </div>
             <div class="wrap">
-                <span id="animationBox" style="display: block; position: absolute; z-index: 2; left: 350px; top: 445px; width: 300px;" class>
+                <span id="animationBox" style="display: block; position: absolute; z-index: 2;  top: 445px; width: 300px;" class>
                     <h1 id="pictureName" class="site__title"> </h1>
                 </span>
             </div>
