@@ -207,7 +207,6 @@
                     i = (i + 1) % playlist.length;
                     $('source#mp3').attr('src', nextSong);
                     $("#audioplayer").load();
-                    //$("#audioplayer").play();
                 }, false);
             }
 
@@ -231,7 +230,7 @@
     <body onLoad="resize();">
         <audio id="audioplayer" autoplay onPlay="audioVolumeIn(this);setupAudio();">
             <!--source src="../audio/ghosttown.mp3" type="audio/mpeg"-->
-            <source id="mp3" src='../audio/OneRepublic-GoodLife.mp3' type="audio/mpeg">
+            <source id="mp3" src='../audio/O-VitaminC-Graduation.mp3' type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <!--$("#audioplayer").bind("ended", function(){-->
