@@ -167,7 +167,9 @@
                     var playlist = ['../audio/CharliePuth-OneCallAway.mp3',
                                     '../audio/O-TheKillers AllTheseThingsThatIDone.mp3',
                                     '../audio/TwentyOnePilots-StressedOut.mp3',
-                                    '../audio/TwentyOnePilots-StressedOut.mp3',
+                        '../audio/MO-Kamikaze.mp3',
+                        '../audio/OMI-Cheerleader.mp3',
+                        '../audio/Daya-SitStill,LookPretty.mp3',
                         '../audio/Chainsmokers-LetMeDown.mp3',
                         '../audio/Chainsmokers-roses.mp3',
                         '../audio/CharliePuth-OneCallAway.mp3',
@@ -203,6 +205,7 @@
                     $("#audioplayer").load();
                     //$("#audioplayer").play();
                 }, false);
+
             }
 
             function centerCanvas() {
@@ -217,8 +220,8 @@
             }
         </script>
     </head>
-    <body onLoad="setupAudio();centerCanvas();">
-        <audio id="audioplayer" autoplay onPlay="audioVolumeIn(this);">
+    <body onLoad="centerCanvas();">
+        <audio id="audioplayer" autoplay onPlay="audioVolumeIn(this);setupAudio();">
             <!--source src="../audio/ghosttown.mp3" type="audio/mpeg"-->
             <source id="mp3" src="../audio/TroyeSivan-YOUTH.mp3" type="audio/mpeg">
             Your browser does not support the audio element.

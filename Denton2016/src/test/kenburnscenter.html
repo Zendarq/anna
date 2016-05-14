@@ -169,10 +169,12 @@
                 document.getElementById('audioplayer').addEventListener('ended', function(){
                    // document.getElementById('audioplayer').removeEventListener();
                     var playlist = ['../audio/Meghan Trainor-NO.mp3',
-                                    '../audio/CharliePuth-OneCallAway.mp3',
-                                    '../audio/O-TheKillers AllTheseThingsThatIDone.mp3',
-                                    '../audio/TwentyOnePilots-StressedOut.mp3',
-                                    '../audio/TwentyOnePilots-StressedOut.mp3',
+                        '../audio/MO-Kamikaze.mp3',
+                        '../audio/Daya-SitStill,LookPretty.mp3',
+                        '../audio/CharliePuth-OneCallAway.mp3',
+                        '../audio/O-TheKillers AllTheseThingsThatIDone.mp3',
+                        '../audio/TwentyOnePilots-StressedOut.mp3',
+                        '../audio/OMI-Cheerleader.mp3',
                         '../audio/Chainsmokers-LetMeDown.mp3',
                         '../audio/Chainsmokers-roses.mp3',
                         '../audio/CharliePuth-OneCallAway.mp3',
@@ -213,8 +215,8 @@
             window.addEventListener('resize',function(){
               var width  = window.innerWidth;
               var height = window.innerHeight;
-              ctx.width  = width;
-              ctx.height = height;
+              ctx.width  = window.innerWidth;
+              ctx.height = window.innerHeight;
               ctx.translate(width/2,height/2); // now 0,0 is the center of the canvas.
             },false);
             function resize() {
@@ -226,10 +228,10 @@
 
         </script>
     </head>
-    <body onLoad="setupAudio(); resize();">
-        <audio id="audioplayer" autoplay onPlay="audioVolumeIn(this);">
+    <body onLoad="resize();">
+        <audio id="audioplayer" autoplay onPlay="audioVolumeIn(this);setupAudio();">
             <!--source src="../audio/ghosttown.mp3" type="audio/mpeg"-->
-            <source id="mp3" src='../audio/O-TheKillers AllTheseThingsThatIDone.mp3' type="audio/mpeg">
+            <source id="mp3" src='../audio/OneRepublic-GoodLife.mp3' type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <!--$("#audioplayer").bind("ended", function(){-->
@@ -243,7 +245,7 @@
                 </canvas>
             </div>
             <div class="wrap">
-                <span id="animationBox" style=" display: block; position: absolute; z-index: 2; top: 30px; width: 500px;" class>
+                <span id="animationBox" style=" display: block; position: absolute; z-index: 2; top: 10px; width: 500px;" class>
                     <h1 id="pictureName" class="site__title"> </h1>
                 </span>
             </div>

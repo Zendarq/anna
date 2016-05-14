@@ -70,12 +70,12 @@ input, select, button, textarea {
 \*-----------------------------------*/
 
 h1, .alpha {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.7rem;
     text-align: right;
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -.05em;
+    font-size: 3rem;
+    font-weight: 1000;
+    line-height: 1.1;
+    letter-spacing: .00em;
 }
 
 h2, .beta {
