@@ -8,9 +8,10 @@
         var $canvas = $(this);
         var ctx = this[0].getContext('2d');
         var start_time = null;
-        var width = $canvas.width();
-        var height = $canvas.height();
-
+//        var width = $canvas.width();
+//        var height = $canvas.height();
+        var width = window.innerWidth;
+        var height = window.innerHeight;
         var image_paths = options.images;
         var display_time = options.display_time || 7000;
         var fade_time = Math.min(display_time / 2, options.fade_time || 1000);
@@ -32,6 +33,12 @@
                 initialized:false,
                 loaded:false});
         });
+
+        function setWidthAndHeight(w, h) {
+            width = w;
+            height = h;
+        }
+
         function get_time() {
             var d = new Date();
             return d.getTime() - start_time;
@@ -204,6 +211,12 @@
 
             // Do a callback at the start of the new picture
             if (currentImageNumber != top_frame) {
+                width  = window.innerWidth;
+                height = window.innerHeight;
+                ctx.width = window.innerWidth;
+                ctx.height = window.innerHeight;
+                //ctx.translate(width/2,height/2); // now 0,0 is the center of the canvas.
+
                 if (options.new_image_callback) {
                     options.new_image_callback($canvas, ctx, image_path_name);
                 }

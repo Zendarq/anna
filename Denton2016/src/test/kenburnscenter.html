@@ -128,10 +128,14 @@
 					display_time: 4000,
 					fade_time: 1000,
 					zoom: 1.1,
-					background_color:'#ffffff',
+					background_color:'#00000',
+					width: window.innerWidth,
+					height: window.innerHeight,
 					post_render_callback:function($canvas, context, image_path_name) {
-
-
+                        width  = window.innerWidth;
+                        height = window.innerHeight;
+                        $canvas.width = window.innerWidth;
+                        $canvas.height = window.innerHeight;
 					},
 
                     slideshow_end_callback:function($canvas, context) {
@@ -164,7 +168,8 @@
             function setupAudio() {
                 document.getElementById('audioplayer').addEventListener('ended', function(){
                    // document.getElementById('audioplayer').removeEventListener();
-                    var playlist = ['../audio/CharliePuth-OneCallAway.mp3',
+                    var playlist = ['../audio/Meghan Trainor-NO.mp3',
+                                    '../audio/CharliePuth-OneCallAway.mp3',
                                     '../audio/O-TheKillers AllTheseThingsThatIDone.mp3',
                                     '../audio/TwentyOnePilots-StressedOut.mp3',
                                     '../audio/TwentyOnePilots-StressedOut.mp3',
@@ -177,7 +182,6 @@
                         '../audio/JamesBay-LetItGo.mp3',
                         '../audio/JustinbBieber-LoveYourself.mp3',
                         '../audio/Lukas Graham-7Years.mp3',
-                        '../audio/Meghan Trainor-NO.mp3',
                         '../audio/MikePosner-ITookAPillInIbiza.mp3',
                         '../audio/O-Cyndi Lauper-GirlsJustWanttoHaveFun.mp3',
                         '../audio/O-Erasure-Rain.mp3',
@@ -205,22 +209,27 @@
                 }, false);
             }
 
-            function centerCanvas() {
+            var ctx = document.getElementById("kenburns");
+            window.addEventListener('resize',function(){
+              var width  = window.innerWidth;
+              var height = window.innerHeight;
+              ctx.width  = width;
+              ctx.height = height;
+              ctx.translate(width/2,height/2); // now 0,0 is the center of the canvas.
+            },false);
+            function resize() {
                 // Get the canvas element form the page
                 var canvas = document.getElementById("kenburns");
-
-                /* Rresize the canvas to occupy the full page,
-                   by getting the widow width and height and setting it to canvas*/
-
-                canvas.width  = window.innerWidth;
+                canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             }
+
         </script>
     </head>
-    <body onLoad="setupAudio();centerCanvas();">
+    <body onLoad="setupAudio(); resize();">
         <audio id="audioplayer" autoplay onPlay="audioVolumeIn(this);">
             <!--source src="../audio/ghosttown.mp3" type="audio/mpeg"-->
-            <source id="mp3" src="../audio/TroyeSivan-YOUTH.mp3" type="audio/mpeg">
+            <source id="mp3" src='../audio/O-TheKillers AllTheseThingsThatIDone.mp3' type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <!--$("#audioplayer").bind("ended", function(){-->
@@ -234,7 +243,7 @@
                 </canvas>
             </div>
             <div class="wrap">
-                <span id="animationBox" style=" display: block; position: absolute; z-index: 2;  top: 450px; width: 500px;" class>
+                <span id="animationBox" style=" display: block; position: absolute; z-index: 2; top: 30px; width: 500px;" class>
                     <h1 id="pictureName" class="site__title"> </h1>
                 </span>
             </div>

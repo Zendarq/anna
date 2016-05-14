@@ -6,9 +6,6 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 input, select, button, textarea {
@@ -142,6 +139,8 @@ a:hover {
 .wrap {
     max-width: 38rem;
     margin: 0 auto;
+
+
 }
 
 .island {
@@ -163,7 +162,7 @@ a:hover {
 html {
     font: 100%/1.5 "Roboto", Verdana, sans-serif;
     color: #3d464d;
-    background-color: #fff;
+    background-color: #000000;
     -webkit-font-smoothing: antialiased;
     width: 100%;
 
@@ -171,6 +170,14 @@ html {
 
     /* Centering in The Unknown */
    /*text-align: center; */
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 @media (min-width: 650px) {
