@@ -2,8 +2,8 @@
 <html>
     <head>
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="../js/vendor/jquery.min.js"></script>
+        <link href='../css/font.css' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../css/animate.css">
         <link rel="stylesheet" href="../css/style.css" />
         <title>Denton 2016</title>
@@ -13,6 +13,7 @@
 
 		<script type="text/javascript">
 			$(function(){
+
 				$('#kenburns').kenburns({
 					images:[
                         '../img/kids/Aaron Devadas.JPG',
@@ -162,6 +163,7 @@
             var i=0;
             var nextSong= "";
             function setupAudio() {
+
                 document.getElementById('audioplayer').addEventListener('ended', function(){
                    // document.getElementById('audioplayer').removeEventListener();
                     var playlist = ['../audio/CharliePuth-OneCallAway.mp3',
@@ -218,6 +220,12 @@
                 canvas.width  = window.innerWidth;
                 canvas.height = window.innerHeight;
             }
+        </script>
+
+        <script type="text/javascript">
+            setTimeout(function() {
+                // this code runs 3 seconds after the page loads
+            }, 3000);
         </script>
     </head>
     <body onLoad="centerCanvas();">
