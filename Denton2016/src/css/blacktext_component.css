@@ -228,6 +228,7 @@
 /* Bold words */
 .os-phrases h2:first-child .word3,
 .os-phrases h2:nth-child(2) .word2,
+.os-phrases h2:nth-child(3) .word2,
 .os-phrases h2:nth-child(4) .word2 {
 	font-weight: 600;
 }
